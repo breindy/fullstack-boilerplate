@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'font-awesome/css/font-awesome.css';
@@ -11,8 +12,9 @@ function App() {
   return (
     <div className="App">
       <NavBar/>
-      {/* <h2>nullProjects</h2> */}
-      <Signup/>
+      <Router>
+        <Route path='/signup' component={Signup}></Route>
+      </Router>
     </div>
   );
 }
