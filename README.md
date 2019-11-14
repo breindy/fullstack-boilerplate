@@ -5,19 +5,20 @@
 ###  :globe_with_meridians: Basic Functionalities include:
 
 :heavy_check_mark: NavBar
-- [ ] Protected Authentication
 - [ ] Basic Landing Page
-- [ ] Login Component
 
+:heavy_check_mark: Login Component
 :heavy_check_mark: Sign Up Component
 - [ ] Sign Up / Login Validation Form
+- [ ] Persisting User (Sign up/Login) Data onto Database
+- [ ] Protected Authentication
 - [ ] Profile Setup
 
 :heavy_check_mark: Basic Node Server
+:heavy_check_mark: Basic Routing for NavBar
 
 
 ### :round_pushpin: Currently working on:
-- Routing pages to corresponding components using React-Router
 - Setting up database with sequelize and Postgresql to validate sign up / login forms
 
 ###  What's to Come: :soon:

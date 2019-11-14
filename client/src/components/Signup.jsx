@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './Signup.scss';
 
 class Signup extends Component {
@@ -34,7 +35,7 @@ class Signup extends Component {
     }
     render() { 
         return ( 
-            <div className="signup-form">
+            <div className="login-form">
                 <form>
                     <h2>Sign Up</h2>
                     <p>Please fill in this form to create an account.</p>
@@ -71,7 +72,7 @@ class Signup extends Component {
                         <button type="submit" className="btn btn-primary btn-lg">Sign Up</button>
                     </div>
                 </form>
-                <div className="text-center">Already have an account? <a href="#">Login here</a></div>
+                <div className="text-center">Already have an account? <Link to="/login"><a>Login here</a></Link></div>
 
             </div>
          );
