@@ -3,13 +3,16 @@
 :computer: It includes technologies such as React, Sass, Node, Express, Postgresql, and more. :space_invader:
 
 :globe_with_meridians: Basic Functionalities include:
+
 :heavy_check_mark: NavBar
 - [ ] Protected Authentication
 - [ ] Basic Landing Page
 - [ ] Login Component
+
 :heavy_check_mark: Sign Up Component
 - [ ] Sign Up / Login Validation Form
 - [ ] Profile Setup
+
 :heavy_check_mark: Basic Node Server
 
 :round_pushpin: Currently working on:
