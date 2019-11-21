@@ -9,6 +9,7 @@
 
 :heavy_check_mark: Login Component
 :heavy_check_mark: Sign Up Component
+
 - [ ] Sign Up / Login Validation Form
 - [ ] Persisting User (Sign up/Login) Data onto Database
 - [ ] Protected Authentication
