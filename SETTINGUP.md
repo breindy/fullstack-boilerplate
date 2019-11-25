@@ -4,7 +4,7 @@ This documentation will walk you through the ins and outs of running full stack 
 
 Tech Stack: React, Sass, Express, Node, Sequelize, Postgres
 
-:one: Clone the repository
+### :one: Clone the repository
 
 `cd` into the directory you want to make the project and clone the repo
 
@@ -15,7 +15,7 @@ You may now use this directory for your next projects. You are free to rename th
 `mv old-name new-name` 
 
 
-:two: Install dependencies
+### :two: Install Node dependencies
 
 To get both frontend client and backend server to work, install the node_modules dependency for both directories.
 
@@ -30,7 +30,7 @@ To get both frontend client and backend server to work, install the node_modules
 `npm install` 
 to install both client and server dependencies to be able to get the project working on your local computer.
 
-:three: Setting up database locally
+###  :three: Setting up database locally
 
 The SQL database used in this boilerplate uses Postgresql which is one of the most common mysql database.
 
@@ -58,7 +58,7 @@ You want to grant access and privilege to the user/role that you just created so
 
 :warning: **Don't forget these credentials** as we will use these credentials for your config file to initialize Sequelize access to your database!
 
-:four: Setting up config file for Sequelize
+###  :four: Setting up config file for Sequelize
 
 Sequelize is an Database ORM (an object relational mapper) that allows you to write sql queries using javascript or any other object-oriented paradigm or programming language. It makes creating complicated queries and data management easier for the long haul of your project which is why we are utilizing Sequelize to navigate through our postgres database to create, delete, update information.
 
