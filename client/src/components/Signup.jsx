@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './Signup.scss';
 
@@ -36,7 +37,7 @@ class Signup extends Component {
 	onSubmit = (e) => {
 		e.preventDefault();
 		const newUser = this.state;
-		console.log('New user information: ', newUser);
+		// console.log('New user information: ', newUser);
 
 		this.setState({
 			username: '',
@@ -46,6 +47,26 @@ class Signup extends Component {
 		});
 
 		//pass new user info to backend to store into the database
+		const headers = {
+			'Content-Type': 'application/json',
+			'Access-Control-Allow-Origin': '*',
+			'Access-Control-Allow-Headers': 'Content-Type',
+			'Acesss-Control-Allow-Methods': '*'
+		};
+
+		// fetch('localhost:3001/api/auth/register', newUser)
+		axios
+			.post('/api/auth/register', newUser, {
+				headers: headers
+			})
+			.then(
+				(response) => {
+					console.log(response);
+				},
+				(error) => {
+					console.log(error);
+				}
+			);
 	};
 	render() {
 		return (
