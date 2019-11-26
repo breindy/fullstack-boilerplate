@@ -54,7 +54,7 @@ Now you want to create a user/role that has access and rights to create tables, 
 Run `CREATE USER username_dbuser WITH ENCRYPTED PASSWORD 'password';`
 
 You want to grant access and privilege to the user/role that you just created so run
-`GRANT ALL PRIVILEGES ON dbname_development TO username_dbuser;`
+`GRANT ALL PRIVILEGES ON DATABASE dbname_development TO username_dbuser;`
 
 :warning: **Don't forget these credentials** as we will use these credentials for your config file to initialize Sequelize access to your database!
 
