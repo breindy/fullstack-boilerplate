@@ -10,8 +10,12 @@
 :heavy_check_mark: Login Component
 :heavy_check_mark: Sign Up Component
 
-- [ ] Sign Up / Login Validation Form
-- [ ] Persisting User (Sign up/Login) Data onto Database
+:heavy_check_mark: Sign Up Validation Form
+
+- [ ] Login Validation Form
+
+:heavy_check_mark: Persisting User (Sign up/Login) Data onto Database
+
 - [ ] Protected Authentication
 - [ ] Profile Setup
 
@@ -20,7 +24,8 @@
 
 
 ### :round_pushpin: Currently working on:
-- Setting up database with sequelize and Postgresql to validate sign up / login forms
+- Login Form Validation
+- Login with JWT Token, and Protected Routes, and Redirect
 
 ###  What's to Come: :soon:
-- [ ] Working documentation on how to run from scratch on a new project.
+**IN PROGRESS** Documentation on how to run from scratch on a new project. 
