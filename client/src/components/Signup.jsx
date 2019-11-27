@@ -3,13 +3,19 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './Signup.scss';
 
+const initialState = {
+	username: '',
+	email: '',
+	password: '',
+	confirmPassword: '',
+	usernameError: '',
+	emailError: '',
+	passwordError: '',
+	confirmError: ''
+};
+
 class Signup extends Component {
-	state = {
-		username: '',
-		email: '',
-		password: '',
-		confirmPassword: ''
-	};
+	state = initialState;
 
 	getUsername = (event) => {
 		this.setState({
@@ -34,39 +40,103 @@ class Signup extends Component {
 			confirmPassword: event.target.value
 		});
 	};
+
+	validate = () => {
+		let { username, email, password } = this.state;
+		let usernameError = '';
+
+		/*username validation
+		* 1. username must not be taken (unique)
+		* 2. username must be longer than 3 characters
+		*/
+		if (username.length <= 3) {
+			usernameError = 'Username must be longer than 3 characters';
+			this.setState({
+				usernameError
+			});
+		} else {
+			usernameError = '';
+			this.setState({
+				usernameError
+			});
+		}
+	};
+
+	validateInput = () => {
+		let usernameError = '';
+		let emailError = '';
+		let passwordError = '';
+		let confirmError = '';
+
+		if (!this.state.username) {
+			usernameError = 'Username cannot not be blank';
+		}
+		if (this.state.username.length <= 3) {
+			usernameError = 'Username must be longer than 3 characters';
+		}
+		if (!this.state.email.includes('@')) {
+			emailError = 'Invalid Email';
+		}
+		if (this.state.password < 3) {
+			passwordError = 'Password must be longer than 3 characters';
+		}
+		if (!this.state.password) {
+			passwordError = 'Password cannot be blank';
+		}
+
+		if (this.state.password <= 3) {
+			passwordError = 'Password must be longer than 3 characters';
+		}
+
+		if (this.state.password != this.state.confirmPassword) {
+			confirmError = 'Passwords do not match';
+		}
+
+		if (emailError || usernameError || passwordError || confirmError) {
+			this.setState({ emailError, usernameError, passwordError, confirmError });
+			return false;
+		}
+
+		return true;
+	};
+
 	onSubmit = (e) => {
 		e.preventDefault();
-		const newUser = this.state;
-		// console.log('New user information: ', newUser);
-
-		this.setState({
-			username: '',
-			email: '',
-			password: '',
-			confirmPassword: ''
-		});
-
-		//pass new user info to backend to store into the database
-		const headers = {
-			'Content-Type': 'application/json',
-			'Access-Control-Allow-Origin': '*',
-			'Access-Control-Allow-Headers': 'Content-Type',
-			'Acesss-Control-Allow-Methods': '*'
+		const { username, email, password } = this.state;
+		const newUser = {
+			username,
+			email,
+			password
 		};
 
-		// fetch('localhost:3001/api/auth/register', newUser)
-		axios
-			.post('/api/auth/register', newUser, {
-				headers: headers
-			})
-			.then(
-				(response) => {
-					console.log(response);
-				},
-				(error) => {
-					console.log(error);
-				}
-			);
+		const isValid = this.validateInput();
+		if (isValid) {
+			console.log('New user information: ', newUser);
+			this.setState(initialState);
+		}
+
+		//pass new user info to backend to store into the database
+		// const headers = {
+		// 	'Content-Type': 'application/json',
+		// 	'Access-Control-Allow-Origin': '*',
+		// 	'Access-Control-Allow-Headers': 'Content-Type',
+		// 	'Acesss-Control-Allow-Methods': '*'
+		// };
+
+		// axios
+		// 	.post('/api/auth/register', newUser, {
+		// 		headers: headers
+		// 	})
+		// 	.then(
+		// 		(response) => {
+		// 			console.log(response);
+		// 		},
+		// 		(error) => {
+		// 			console.log(error);
+		// 		}
+		// 	);
+
+		//Success message, redirect to Login
 	};
 	render() {
 		return (
@@ -91,6 +161,7 @@ class Signup extends Component {
 								onChange={this.getUsername}
 							/>
 						</div>
+						<div className="errorValidation">{this.state.usernameError}</div>
 					</div>
 
 					<div className="form-group">
@@ -108,6 +179,7 @@ class Signup extends Component {
 								onChange={this.getEmail}
 							/>
 						</div>
+						<div className="errorValidation">{this.state.emailError}</div>
 					</div>
 
 					<div className="form-group">
@@ -125,6 +197,7 @@ class Signup extends Component {
 								onChange={this.getPassword}
 							/>
 						</div>
+						<div className="errorValidation">{this.state.passwordError}</div>
 					</div>
 
 					<div className="form-group">
@@ -142,6 +215,7 @@ class Signup extends Component {
 								onChange={this.confirmPassword}
 							/>
 						</div>
+						<div className="errorValidation">{this.state.confirmError}</div>
 					</div>
 					<div className="form-group">
 						<button onClick={(e) => this.onSubmit(e)} type="submit" className="btn btn-primary btn-lg">
