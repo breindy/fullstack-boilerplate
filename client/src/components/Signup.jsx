@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Modal from './Modal';
 import './Signup.scss';
 
 const initialState = {
@@ -11,7 +12,8 @@ const initialState = {
 	usernameError: '',
 	emailError: '',
 	passwordError: '',
-	confirmError: ''
+	confirmError: '',
+	showModal: false
 };
 
 class Signup extends Component {
@@ -100,19 +102,32 @@ class Signup extends Component {
 		return true;
 	};
 
+	clearFields = () => {
+		this.setState(initialState);
+	};
+
 	onSubmit = (e) => {
 		e.preventDefault();
-		const { username, email, password } = this.state;
+		let { username, email, password, showModal: show } = this.state;
 		const newUser = {
 			username,
 			email,
-			password
+			password,
+			show
 		};
 
 		const isValid = this.validateInput();
 		if (isValid) {
-			console.log('New user information: ', newUser);
-			this.setState(initialState);
+			this.setState(
+				{
+					showModal: true
+				},
+				() => {
+					console.log('New user info', newUser);
+				}
+			);
+
+			// this.setState(initialState);
 		}
 
 		//pass new user info to backend to store into the database
@@ -135,8 +150,6 @@ class Signup extends Component {
 		// 			console.log(error);
 		// 		}
 		// 	);
-
-		//Success message, redirect to Login
 	};
 	render() {
 		return (
@@ -221,6 +234,17 @@ class Signup extends Component {
 						<button onClick={(e) => this.onSubmit(e)} type="submit" className="btn btn-primary btn-lg">
 							Sign Up
 						</button>
+						{this.state.showModal && (
+							<Modal
+								image={require('../assets/success.png')}
+								width={150}
+								title={'Success!'}
+								content={'Account registered successfully.'}
+								additional={'Login here.'}
+								cta={'Login'}
+								page={'/login'}
+							/>
+						)}
 					</div>
 				</form>
 				<div className="text-center">

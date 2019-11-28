@@ -7,6 +7,7 @@ import About from './About';
 import Signup from './Signup';
 import Login from './Login';
 import Error from './Error';
+import Modal from './Modal';
 
 class NavBar extends Component {
 	state = {};
@@ -29,7 +30,7 @@ class NavBar extends Component {
 						<span className="navbar-toggler-icon" />
 					</button>
 					<div className="collapse navbar-collapse" id="navbarSupportedContent">
-						<ul className="navbar-nav mr-auto">
+						<ul className="navbar-nav ml-auto">
 							<li className="nav-item">
 								<Link to="/">
 									<a className="nav-link">
@@ -72,6 +73,15 @@ class NavBar extends Component {
 					</Route>
 					<Route path="/login" exact>
 						<Login />
+					</Route>
+					<Route path="/modal" exact>
+						<Modal
+							image={require('../assets/success.png')}
+							width={150}
+							title={'Success!'}
+							content={'Account registered successfully.'}
+							additional={'Login here.'}
+						/>
 					</Route>
 					<Route path="/">
 						<Error />
