@@ -9,13 +9,9 @@
 
 :heavy_check_mark: Login Component
 :heavy_check_mark: Sign Up Component
-
 :heavy_check_mark: Sign Up Validation Form
-
-- [ ] Login Validation Form
-
+:heavy_check_mark: Login Validation Form
 :heavy_check_mark: Persisting User (Sign up/Login) Data onto Database
-
 - [ ] Protected Authentication
 - [ ] Profile Setup
 
@@ -24,7 +20,6 @@
 
 
 ### :round_pushpin: Currently working on:
-- Login Form Validation
 - Login with JWT Token, and Protected Routes, and Redirect
 
 ###  What's to Come: :soon:
