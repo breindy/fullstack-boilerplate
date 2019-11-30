@@ -4,19 +4,17 @@
 
 ###  :globe_with_meridians: Basic Functionalities include:
 
-:heavy_check_mark: NavBar
-- [ ] Basic Landing Page
-
-:heavy_check_mark: Login Component
-:heavy_check_mark: Sign Up Component
-:heavy_check_mark: Sign Up Validation Form
-:heavy_check_mark: Login Validation Form
-:heavy_check_mark: Persisting User (Sign up/Login) Data onto Database
-- [ ] Protected Authentication
-- [ ] Profile Setup
-
-:heavy_check_mark: Basic Node Server
-:heavy_check_mark: Basic Routing for NavBar
+:ballot_box_with_check: NavBar
+:black_square_button: Basic Landing Page
+:ballot_box_with_check: Login Component
+:ballot_box_with_check: Sign Up Component
+:ballot_box_with_check: Sign Up Validation Form
+:ballot_box_with_check: Login Validation Form
+:ballot_box_with_check: Persisting User (Sign up/Login) Data onto Database
+:black_square_button: Protected Authentication
+:black_square_button: Profile Setup
+:ballot_box_with_check: Basic Node Server
+:ballot_box_with_check: Basic Routing for NavBar
 
 
 ### :round_pushpin: Currently working on:
