@@ -8,6 +8,7 @@ import Signup from './Signup';
 import Login from './Login';
 import Error from './Error';
 import Modal from './Modal';
+import Success from './Success';
 
 class NavBar extends Component {
 	state = {};
@@ -73,6 +74,9 @@ class NavBar extends Component {
 					</Route>
 					<Route path="/login" exact>
 						<Login />
+					</Route>
+					<Route path="/success" exact>
+						<Success />
 					</Route>
 					<Route path="/modal" exact>
 						<Modal

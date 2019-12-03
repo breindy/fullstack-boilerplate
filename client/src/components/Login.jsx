@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
 import './Login.scss';
 
@@ -7,7 +7,8 @@ const initialState = {
 	username: '',
 	password: '',
 	usernameError: '',
-	passwordError: ''
+	passwordError: '',
+	isAuthenticated: false
 };
 
 class Login extends Component {
@@ -71,13 +72,16 @@ class Login extends Component {
 						console.log(response);
 						if (response.status === 202) {
 							//REDIRECT TO A NEW PAGE
-							console.log('Logged in successfully!');
+							this.setState({
+								isAuthenticated: true
+							})
 						} else {
 							console.log(response);
-							// console.log('Login unsuccessful');
+							alert('login unsuccessful');
 						}
 					},
 					(error) => {
+						alert('login unsuccessful');
 						console.log(error);
 					}
 				);
@@ -85,6 +89,10 @@ class Login extends Component {
 	};
 
 	render() {
+		const { isAuthenticated } = this.state;
+		if (isAuthenticated === true) {
+			return <Redirect to="/success" />
+		}
 		return (
 			<div className="signup-form">
 				<h2>Login</h2>
